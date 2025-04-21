@@ -28,10 +28,11 @@ select, input, button {
     width: 100%;
     padding: 12px;
     margin: 12px 0;
-    border: 1px solid #90caf9; /* light blue border */
+    border: 1px solid #90caf9;
     border-radius: 8px;
     font-size: 15px;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 select:focus,

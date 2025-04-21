@@ -9,8 +9,10 @@
 <body>
     <div class="converter">
         <h2>Unit Converter</h2>
+
         <label for="unitType">Convert from:</label>
-        <select id="unitType">
+        <select id="unitType" onchange="showConvertTo()">
+            <option value="">Select a unit</option>
             <option value="cm">Centimeters (cm)</option>
             <option value="inches">Inches (in)</option>
             <option value="ft">Foot (ft)</option>
@@ -18,14 +20,14 @@
             <option value="m">Meters (m)</option>
             <option value="km">Kilometers (km)</option>
             <option value="mm">Millimeters (mm)</option>
-
         </select>
 
         <label for="valueInput">Enter Value:</label>
         <input type="number" id="valueInput" placeholder="Enter value">
 
-        <label for="convertTo">Convert to:</label>
-        <select id="convertTo">
+        <label for="unitType">Convert to:</label>
+        <select id="unitType" onchange="showConvertTo()">
+            <option value="">Select a unit</option>
             <option value="cm">Centimeters (cm)</option>
             <option value="inches">Inches (in)</option>
             <option value="ft">Foot (ft)</option>
@@ -33,7 +35,6 @@
             <option value="m">Meters (m)</option>
             <option value="km">Kilometers (km)</option>
             <option value="mm">Millimeters (mm)</option>
-
         </select>
 
         <button onclick="convert()">Convert</button>

@@ -1,30 +1,38 @@
 function convert() {
-    let unitFrom = document.getElementById("unitType").value;
-    let unitTo = document.getElementById("convertTo").value;
-    let value = parseFloat(document.getElementById("valueInput").value);
-    let result = 0;
+    const fromUnitSelects = document.querySelectorAll('#unitType');
+    const fromUnit = fromUnitSelects[0].value;
+    const toUnit = fromUnitSelects[1].value;
+    const value = parseFloat(document.getElementById('valueInput').value);
 
-    if (isNaN(value)) {
-        alert("Please enter a valid number");
+    if (!fromUnit || !toUnit || isNaN(value)) {
+        alert('Please select both units and enter a value.');
         return;
     }
 
-    // Conversion rates relative to meters
-    const conversionRates = {
-        cm: 0.01,
-        inches: 0.0254,
-        ft: 0.3048,     // foot to meter
-        yd: 0.9144,     // yard to meter
-        m: 1,
-        km: 1000,
-        mm: 0.001
+    // Convert input value to meters (as base unit)
+    const toMeters = {
+        cm: value => value / 100,
+        mm: value => value / 1000,
+        m: value => value,
+        km: value => value * 1000,
+        inches: value => value * 0.0254,
+        ft: value => value * 0.3048,
+        yd: value => value * 0.9144
     };
 
-    // Convert input to meters first
-    let meters = value * conversionRates[unitFrom];
+    // Convert from meters to target unit
+    const fromMeters = {
+        cm: value => value * 100,
+        mm: value => value * 1000,
+        m: value => value,
+        km: value => value / 1000,
+        inches: value => value / 0.0254,
+        ft: value => value / 0.3048,
+        yd: value => value / 0.9144
+    };
 
-    // Convert meters to the target unit
-    result = meters / conversionRates[unitTo];
+    const inMeters = toMeters[fromUnit](value);
+    const result = fromMeters[toUnit](inMeters);
 
-    document.getElementById("result").textContent = result.toFixed(4);
+    document.getElementById('result').textContent = result.toFixed(4);
 }
