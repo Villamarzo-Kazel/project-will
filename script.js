@@ -13,6 +13,8 @@ function convert() {
     const conversionRates = {
         cm: 0.01,
         inches: 0.0254,
+        ft: 0.3048,     // foot to meter
+        yd: 0.9144,     // yard to meter
         m: 1,
         km: 1000,
         mm: 0.001
