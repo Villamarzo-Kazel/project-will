@@ -31,6 +31,7 @@ select, input, button {
     border: 1px solid #90caf9;
     border-radius: 8px;
     font-size: 15px;
+    font-family: Geneva;
     transition: all 0.3s ease;
     box-sizing: border-box;
 
@@ -47,6 +48,7 @@ button {
     background-color: #1976d2; /* primary blue */
     color: white;
     font-size: 16px;
+    font-family: Geneva;
     cursor: pointer;
     border: none;
     border-radius: 8px;
